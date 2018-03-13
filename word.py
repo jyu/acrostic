@@ -32,16 +32,35 @@ def getWord(wordType, letter):
                 s = str(p.get_text())
                 parsedWords = s.split(c)
                 if len(parsedWords) > 3:
-                    for w in parsedWords:               
-                        if w != "":        
+                    for w in parsedWords:
+                        if (w != ""):
                             words.append(processWord(w))
             except:
-                continue    
+                continue
+    # if (wordType == "verbs"):
+    #     words = filterVerbs(words)
     return words
 
-sentence = []
-sentence.append(random.choice(getWord("adjective", "m")))
-sentence.append(random.choice(getWord("noun", "e")))
-sentence.append(random.choice(getWord("verbs", "m")))
-sentence.append(random.choice(getWord("noun", "e")))
-print " ".join(sentence)
+
+# adjective, verbs, noun, adverb
+# wordLists = []
+# wordLists.append(getWord("adjective", "a"))
+# wordLists.append(getWord("adjective", "d"))
+# wordLists.append(getWord("noun", "i"))
+# wordLists.append(getWord("adverb", "n"))
+# wordLists.append(getWord("verbs", "g"))
+# wordLists.append(getWord("noun", "s"))
+
+wordLists = []
+wordLists.append(getWord("adjective", "m"))
+wordLists.append(getWord("noun", "e"))
+wordLists.append(getWord("verbs", "m"))
+wordLists.append(getWord("noun", "e"))
+
+# print w3
+for i in range(4):
+    sentence = []
+    for wl in wordLists:
+        sentence.append(random.choice(wl))
+
+    print " ".join(sentence)
