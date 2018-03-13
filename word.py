@@ -13,8 +13,11 @@ def processWord(w):
 def filterVerbs(vList):
     res = []
     for w in vList:
-        if ((w.find("ing") != -1) or
-            (w.find("ed") != -1)):
+        if (w.find("ing") != -1):
+            # res.append(w[:-3])
+            continue
+        elif (w.find("ed") != -1):
+            # res.append(w[:-2])
             continue
         elif w[-1] != "s":
             res.append(w + "s")
@@ -38,8 +41,8 @@ def getWord(wordType, letter):
                             words.append(processWord(w))
             except:
                 continue
-    # if (wordType == "verbs"):
-    #     words = filterVerbs(words)
+    if (wordType == "verbs"):
+        words = filterVerbs(words)
     return words
 
 
@@ -56,6 +59,7 @@ wordLists = []
 wordLists.append(getWord("adjective", "m"))
 wordLists.append(getWord("noun", "e"))
 wordLists.append(getWord("verbs", "m"))
+print wordLists[-1]
 wordLists.append(getWord("noun", "e"))
 
 # print w3
