@@ -9,12 +9,19 @@ def processWord(w):
     w = w.replace(" ", "")
     return w
 
+def filterVerbs(vList):
+    res = []
+    for w in vList:
+        if ((w.find("ing") != -1) or
+            (w.find("ed") != -1)):
+            continue
+        elif w[-1] != "s":
+            res.append(w + "s")
+    return res
 
 def getWord(wordType, letter):
     url = "http://" + wordType + "1.com/start-" + letter + "/"
-    print url
     page = urllib2.urlopen(url)
-
     soup = BeautifulSoup(page, 'html.parser')
 
     c = ","
