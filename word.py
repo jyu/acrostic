@@ -2,6 +2,7 @@ import urllib2
 from bs4 import BeautifulSoup
 import json
 import random
+from ginger import correct
 
 def processWord(w):
     w = w.replace("\n", "")
@@ -63,4 +64,6 @@ for i in range(4):
     for wl in wordLists:
         sentence.append(random.choice(wl))
 
-    print " ".join(sentence)
+    s = " ".join(sentence)
+    print correct(s)
+
