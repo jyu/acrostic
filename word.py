@@ -56,12 +56,16 @@ def getWord(wordType, letter):
 # wordLists.append(getWord("noun", "s"))
 
 wordLists = []
-wordLists.append(getWord("adjective", "m"))
-wordLists.append(getWord("noun", "e"))
-wordLists.append(getWord("verbs", "m"))
-print wordLists[-1]
-wordLists.append(getWord("noun", "e"))
+wordLists.append(getWord("adjective", "f"))
+wordLists.append(getWord("adjective", "e"))
+wordLists.append(getWord("noun", "l"))
+wordLists.append(getWord("verbs", "l"))
+wordLists.append(getWord("adverb", "a"))
 
+#wordLists.append(getWord("adjective", "m"))
+#wordLists.append(getWord("noun", "e"))
+#wordLists.append(getWord("verbs", "m"))
+#wordLists.append(getWord("noun", "e"))
 # print w3
 for i in range(4):
     sentence = []
