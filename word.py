@@ -45,27 +45,24 @@ def getWord(wordType, letter):
         words = filterVerbs(words)
     return words
 
+def getWordList(pattern, word):
+    wordList = []
+    for i in range(len(word) - len(pattern)):
+        wordList.append(getWord("adjective", word[i]))
+    for i in range(len(pattern)):
+        wordList.append(getWord(pattern[i], word[i + len(word) - len(pattern)]))
+    return wordList
 
 # adjective, verbs, noun, adverb
-# wordLists = []
-# wordLists.append(getWord("adjective", "a"))
-# wordLists.append(getWord("adjective", "d"))
-# wordLists.append(getWord("noun", "i"))
-# wordLists.append(getWord("adverb", "n"))
-# wordLists.append(getWord("verbs", "g"))
-# wordLists.append(getWord("noun", "s"))
+patterns = [
+["adjective", "noun", "verbs", "adverb"],
+["adjective", "noun", "adverb", "verbs"],
+["adjective", "noun", "verbs", "noun"],
+["adjective", "noun", "adverb", "verbs", "noun"]
+]
 
-wordLists = []
-wordLists.append(getWord("adjective", "f"))
-wordLists.append(getWord("adjective", "e"))
-wordLists.append(getWord("noun", "l"))
-wordLists.append(getWord("verbs", "l"))
-wordLists.append(getWord("adverb", "a"))
+wordLists = getWordList(patterns[3], "adings")
 
-#wordLists.append(getWord("adjective", "m"))
-#wordLists.append(getWord("noun", "e"))
-#wordLists.append(getWord("verbs", "m"))
-#wordLists.append(getWord("noun", "e"))
 # print w3
 for i in range(4):
     sentence = []
